@@ -6,18 +6,22 @@ import javax.swing.JOptionPane;
 
 public class Shop {
 	
-	private ArrayList<Product> producten = new ArrayList<Product>;
-	
+	private ArrayList<Product> producten;
+	private ArrayList<String> productTitles;
+	private ArrayList<String> productTypes;
+	private ArrayList<String> productIds;
+
 	public Shop()
 	{
-		productTitles = new ArrayList<String>();
-		productTypes = new ArrayList<String>();
-		productIds = new ArrayList<String>();
+		productIds = new ArrayList<>();
+		productTypes = new ArrayList<>();
+		productTitles = new ArrayList<>();
+		producten = new ArrayList<Product>();
 	}
 
 	public double getPrice(int productidx, int days) {
 		double price = 0;
-		if(productTypes.get(productidx).equals("M")){ 
+		if(this.productTypes.get(productidx).equals("M")){
 			price = 5;
 			int daysLeft = days - 3;
 			if (daysLeft > 0) {
