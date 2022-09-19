@@ -6,9 +6,7 @@ import javax.swing.JOptionPane;
 
 public class Shop {
 	
-	private ArrayList<String> productTitles;
-	private ArrayList<String> productTypes;
-	private ArrayList<String> productIds;
+	private ArrayList<Product> producten = new ArrayList<Product>;
 	
 	public Shop()
 	{
