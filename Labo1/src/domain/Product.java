@@ -34,4 +34,16 @@ public class Product {
             this.id = id;
         }
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getId() {
+        return id;
+    }
 }
