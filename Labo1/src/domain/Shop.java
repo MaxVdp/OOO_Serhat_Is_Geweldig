@@ -23,7 +23,9 @@ public class Shop {
 	public void showProduct(){
 		String id = JOptionPane.showInputDialog("Enter the id:");
 		Product p = getProductWithId(Integer.parseInt(id));
-		JOptionPane.showMessageDialog(null, p.getTitle());
+		if (p != null) {
+			JOptionPane.showMessageDialog(null, p.getTitle());
+		}
 
 	}
 
@@ -44,4 +46,5 @@ public class Shop {
 		}
 		return null;
 	}
+
 }
