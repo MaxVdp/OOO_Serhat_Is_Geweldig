@@ -2,9 +2,10 @@ package domain;
 
 public class MirroringBehaviour implements EncodeBehaviour {
 
-    public String encode(String tekst){
+    public String encode(String text){
+        if (text == null) throw new IllegalArgumentException("invalid string");
         String newString = "";
-        for(String l : tekst.split("")){
+        for(String l : text.split("")){
             newString = l + newString;
         }
         return newString;
