@@ -1,13 +1,22 @@
 package domain;
 
-public class MirroringBehaviour {
-    private String tekst;
+public class MirroringBehaviour implements EncodeBehaviour {
 
-    private String encode(String tekst){
+    public String encode(String text){
+        if (text == null) throw new IllegalArgumentException("invalid string");
         String newString = "";
-        for(String l : tekst.split("")){
+        for(String l : text.split("")){
             newString = l + newString;
         }
         return newString;
+    }
+
+    public static String encodeRecursive(String text) {
+        if (text == null) throw new IllegalArgumentException("invalid string");
+        if (text.length() == 1) return text;
+
+        String first = text.substring(0, 1);
+        String rest = text.substring(1);
+        return encodeRecursive( rest) + first;
     }
 }

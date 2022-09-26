@@ -13,6 +13,8 @@ public class Geheimschrift {
         this(geheimschrift, null);
     }
 
+    public Geheimschrift() {}
+
     public void setEncodeBehaviour(EncodeBehaviour encodeBehaviour) {
         this.encodeBehaviour = encodeBehaviour;
     }
@@ -21,4 +23,13 @@ public class Geheimschrift {
         if (geheimschrift == null) throw new IllegalArgumentException("invalid string");
         this.geheimschrift = geheimschrift;
     }
+
+    public String encode() {
+        return this.encodeBehaviour.encode(geheimschrift);
+    }
+
+    public String decode() {
+        return this.encodeBehaviour.decode(geheimschrift);
+    }
+
 }
