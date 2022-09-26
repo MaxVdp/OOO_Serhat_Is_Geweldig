@@ -1,9 +1,8 @@
 package domain;
 
-public class MirroringBehaviour {
-    private String tekst;
+public class MirroringBehaviour implements EncodeBehaviour {
 
-    private String encode(String tekst){
+    public String encode(String tekst){
         String newString = "";
         for(String l : tekst.split("")){
             newString = l + newString;
