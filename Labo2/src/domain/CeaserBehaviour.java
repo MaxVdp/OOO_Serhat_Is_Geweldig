@@ -1,36 +1,64 @@
 package domain;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class CeaserBehaviour implements EncodeBehaviour{
     private String tekst;
     private int defaultVerplaatsing = 5;
-    static String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    static String[] ap = ("abcdefghijklmnopqrstuvwxyz").split("");
+    static List<String> alphabet = Arrays.asList(ap);
 
-    public String encode(String tekst, int verplaatsing){
+    public String encode(String tekst){
+        String[] letters = tekst.split("");
         String result = "";
-        for(int j = 0; j < tekst.length(); j++){
-            for(int i = 0; i<=25; i++){
-                if (tekst.charAt(j).equals(" ")) {
-                    result += " ";
+        for(String letter: letters){
+            if(letter.equals(" ")){
+                result += " ";
+            }
+            else{
+                int index = alphabet.indexOf(letter.toLowerCase());
+                if(index + defaultVerplaatsing > 25){
+                    index -= 25 + defaultVerplaatsing;
+                    result += alphabet.get(index);
                 }
-                else if(tekst.charAt(j) == (alphabet.charAt(i))){
-                    if (i+verplaatsing > 25) {
-                        result += alphabet.charAt(i+verplaatsing-25);
-                    } else {
-                        result += alphabet.charAt(i + verplaatsing);
-                    }
-
+                else{
+                    index += defaultVerplaatsing;
+                    result += alphabet.get(index);
                 }
             }
         }
         return result;
     }
-    public String decode(String tekst, int verplaatsing){
-        return null;
-    }
-    public String encode(String tekst){
-        return null;
+    public String encode(String tekst, int verplaatsing){
+        String[] letters = tekst.split("");
+        String result = "";
+        for(String letter: letters){
+            if(letter.equals(" ")){
+                result += " ";
+            }
+            else{
+                int index = alphabet.indexOf(letter.toLowerCase());
+                if(index + verplaatsing > 25){
+                    index -= 25 + verplaatsing;
+                    result += alphabet.get(index);
+                }
+                else if(index + verplaatsing < 0){
+                    index += 25 + verplaatsing;
+                    result += alphabet.get(index);
+                }
+                else{
+                    index += verplaatsing;
+                    result += alphabet.get(index);
+                }
+            }
+        }
+        return result;
     }
     public String decode(String tekst){
-        return null;
+        return this.encode(tekst, -defaultVerplaatsing);
+    }
+    public String decode(String tekst, int verplaatsing){
+        return this.encode(tekst, -verplaatsing);
     }
 }
