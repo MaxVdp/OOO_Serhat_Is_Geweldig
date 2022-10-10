@@ -3,7 +3,9 @@ package domain;
 public class StateContext {
     private ProductState state;
 
-    public StateContext() {}
+    public StateContext() {
+        this.state = new Available();
+    }
 
     public ProductState getState() {
         return state;
