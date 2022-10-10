@@ -17,6 +17,9 @@ public class Main {
         System.out.println("dit is met verplaatsing -5: " + cs.encode(phrase, -1));
         CeaserBehaviour c = new CeaserBehaviour();
         System.out.println(c.encode("halloz ", -1));
+
+        CodingUI ui = new CodingUI();
+
     }
 
 
