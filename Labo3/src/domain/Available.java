@@ -5,4 +5,9 @@ public class Available implements ProductState {
     public void rent(Product p) {
         p.getStateContext().setState(new Rented());
     }
+
+    @Override
+    public void delete(Product p) {
+        p.getStateContext().setState(new Deleted());
+    }
 }
