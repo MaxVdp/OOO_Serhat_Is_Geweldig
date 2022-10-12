@@ -4,13 +4,15 @@ public class Product {
     private String name;
     private StateContext stateContext;
     private boolean damaged = false;
+    private double aankoopPrijs;
 
-    public Product(String name) {
-        this(name, new StateContext());
+    public Product(String name, double aankoopPrijs) {
+        this(name, aankoopPrijs, new StateContext());
     }
 
-    public Product(String name, StateContext stateContext) {
+    public Product(String name, double aankoopPrijs, StateContext stateContext) {
         this.name = name;
+        this.aankoopPrijs = aankoopPrijs;
         setStateContext(stateContext);
     }
 
@@ -33,5 +35,21 @@ public class Product {
     @Override
     public String toString() {
         return name + ": " + stateContext;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getAankoopPrijs() {
+        return aankoopPrijs;
+    }
+
+    public double getUitleenPrijs() {
+        return aankoopPrijs / 5;
+    }
+
+    public double getHerstelPrijs() {
+        return aankoopPrijs / 3;
     }
 }
