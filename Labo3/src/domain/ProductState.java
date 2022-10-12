@@ -4,8 +4,6 @@ public interface ProductState {
 
     default void rent(Product p) { throw new IllegalArgumentException("Cannot rent item."); }
 
-    default void damage(Product p) { throw new IllegalArgumentException("Cannot damage item."); }
-
     default void delete(Product p) { throw new IllegalArgumentException("Cannot delete item."); }
 
     default void repair(Product p) { throw new IllegalArgumentException("Cannot repair item."); }

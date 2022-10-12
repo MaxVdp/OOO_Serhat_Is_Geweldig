@@ -14,4 +14,9 @@ public class StateContext {
     public void setState(ProductState state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return state.getClass().getSimpleName();
+    }
 }

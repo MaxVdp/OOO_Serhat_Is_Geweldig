@@ -5,4 +5,9 @@ public class Damaged implements ProductState {
     public void delete(Product p) {
         p.getStateContext().setState(new Deleted());
     }
+
+    @Override
+    public void repair(Product p) {
+        p.getStateContext().setState(new Available());
+    }
 }

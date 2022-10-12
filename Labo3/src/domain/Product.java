@@ -1,12 +1,16 @@
 package domain;
 
 public class Product {
+    private String name;
     private StateContext stateContext;
     private boolean damaged = false;
 
-    public Product() {}
+    public Product(String name) {
+        this(name, new StateContext());
+    }
 
-    public Product(StateContext stateContext) {
+    public Product(String name, StateContext stateContext) {
+        this.name = name;
         setStateContext(stateContext);
     }
 
@@ -24,5 +28,10 @@ public class Product {
 
     public boolean isDamaged() {
         return this.damaged;
+    }
+
+    @Override
+    public String toString() {
+        return name + ": " + stateContext;
     }
 }
