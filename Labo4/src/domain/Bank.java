@@ -2,14 +2,12 @@ package domain;
 
 import java.util.ArrayList;
 
-public class Bank {
+public class Bank extends Subject{
     private ArrayList<Rekening> rekeningen;
     private String name;
-    private ArrayList<Observer> observers;
 
     public Bank(String name) {
         this.rekeningen = new ArrayList<>();
-        this.observers = new ArrayList<>();
         this.setName(name);
     }
 
@@ -19,5 +17,18 @@ public class Bank {
 
     public String getName() {
         return name;
+    }
+
+    public void addRekening(Rekening rekening) {
+        this.rekeningen.add(rekening);
+        this.notifyObservers();
+    }
+
+    public ArrayList<Rekening> getAll() {
+        return rekeningen;
+    }
+
+    public int getAmount() {
+        return this.rekeningen.size();
     }
 }
