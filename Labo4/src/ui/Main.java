@@ -11,11 +11,14 @@ public class Main {
 
         b.addRekening(new Rekening("BE01230", 5204.50));
 
+        System.out.println(b.getAmount());
+
         b.addObserver(new Auditor(b));
         b.addObserver(new RekeningLogger(b));
 
         b.addRekening(new Rekening("BE74102", 789.60));
+        b.addRekening(new Rekening("BE74182", 789.60));
 
-
+        System.out.println(b.getAll());
     }
 }

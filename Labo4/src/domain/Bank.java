@@ -1,13 +1,14 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class Bank extends Subject{
-    private ArrayList<Rekening> rekeningen;
+    private TreeSet<Rekening> rekeningen;
     private String name;
 
     public Bank(String name) {
-        this.rekeningen = new ArrayList<>();
+        this.rekeningen = new TreeSet<Rekening>();
         this.setName(name);
     }
 
@@ -20,11 +21,12 @@ public class Bank extends Subject{
     }
 
     public void addRekening(Rekening rekening) {
+        int size = this.getAmount();
         this.rekeningen.add(rekening);
-        this.notifyObservers();
+        if (size != this.getAmount()) this.notifyObservers();
     }
 
-    public ArrayList<Rekening> getAll() {
+    public TreeSet<Rekening> getAll() {
         return rekeningen;
     }
 

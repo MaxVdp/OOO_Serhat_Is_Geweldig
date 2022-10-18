@@ -12,6 +12,6 @@ public class Auditor implements Observer {
     @Override
     public void update() {
         System.out.println("Nieuwe rekening geopend op " + LocalDate.now() + " met rekeningnummer "
-                + this.bank.getAll().get(this.bank.getAmount() - 1).getRekeningnummer());
+                + this.bank.getAll().pollLast().getRekeningnummer());
     }
 }
