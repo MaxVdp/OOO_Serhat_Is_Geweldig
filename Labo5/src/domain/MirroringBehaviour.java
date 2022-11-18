@@ -17,6 +17,6 @@ public class MirroringBehaviour implements EncodeBehaviour {
 
         String first = text.substring(0, 1);
         String rest = text.substring(1);
-        return encodeRecursive( rest) + first;
+        return encodeRecursive(rest) + first;
     }
 }
