@@ -2,7 +2,7 @@ package domain;
 
 public class Geheimschrift {
     private EncodeBehaviour encodeBehaviour;
-    private String geheimschrift;
+    private String tekst;
 
     public Geheimschrift(String geheimschrift, EncodeBehaviour encodeBehaviour) {
         setGeheimschrift(geheimschrift);
@@ -19,17 +19,17 @@ public class Geheimschrift {
         this.encodeBehaviour = encodeBehaviour;
     }
 
-    public void setGeheimschrift(String geheimschrift) {
-        if (geheimschrift == null) throw new IllegalArgumentException("invalid string");
-        this.geheimschrift = geheimschrift;
+    public void setGeheimschrift(String tekst) {
+        if (tekst == null) throw new IllegalArgumentException("invalid string");
+        this.tekst = tekst;
     }
 
     public String encode() {
-        return this.encodeBehaviour.encode(geheimschrift);
+        return this.encodeBehaviour.encode(tekst);
     }
 
     public String decode() {
-        return this.encodeBehaviour.decode(geheimschrift);
+        return this.encodeBehaviour.decode(tekst);
     }
 
 }

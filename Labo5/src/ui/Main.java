@@ -4,20 +4,20 @@ import domain.*;
 
 public class Main {
     public static void main(String[] args) {
-        String phrase = "testje";
+        String phrase = "test";
 
-        EncodeBehaviour behaviour = new CeaserBehaviour();
+        Geheimschrift geheimschrift = new Geheimschrift();
+        geheimschrift.setGeheimschrift(phrase);
+        geheimschrift.setEncodeBehaviour(new CeaserBehaviour());
         System.out.println("dit is originele tekst: " + phrase);
-        System.out.println("dit is originele tekst geëncrypteerd: " + behaviour.encode(phrase));
-        System.out.println("dit is geëncrypteerde tekst gedecrypteerd: " + behaviour.decode(behaviour.encode(phrase)));
+        String encrypted = geheimschrift.encode();
+        System.out.println("dit is originele tekst geëncrypteerd: " + encrypted);
+        geheimschrift.setGeheimschrift(encrypted);
+        System.out.println("dit is geëncrypteerde tekst gedecrypteerd: " + geheimschrift.decode());
 
-        System.out.println("dit is met verplaatsing 5: " + behaviour.encode(phrase));
+        System.out.println("dit is met verplaatsing 5: " + geheimschrift.encode());
 
-        CeaserBehaviour c = new CeaserBehaviour();
-        System.out.println(c.encode("halloz ", -1));
 
-        EncodeBehaviour d = new RandomEncodeAdapter();
-        System.out.println(d.encode("hallo"));
 
 
 
