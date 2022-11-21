@@ -7,6 +7,12 @@ public class CeaserBehaviour implements EncodeBehaviour {
     private static String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private int verplaatsing = 5;
 
+    public CeaserBehaviour(Integer verplaatsing) {
+        this.setVerplaatsing(verplaatsing);
+    }
+
+    public CeaserBehaviour() {}
+
     public String decode(String tekst) {
         String newString = "";
         for (String c : tekst.split("")) {
@@ -47,4 +53,15 @@ public class CeaserBehaviour implements EncodeBehaviour {
         return newString;
     }
 
+    public void setVerplaatsing(int verplaatsing) {
+        this.verplaatsing = verplaatsing;
+    }
+
+    public void setVerplaatsing(Integer verplaatsing) {
+        this.verplaatsing =  verplaatsing;
+    }
+
+    public int getVerplaatsing() {
+        return verplaatsing;
+    }
 }

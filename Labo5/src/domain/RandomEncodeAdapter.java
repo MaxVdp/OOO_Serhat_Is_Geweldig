@@ -11,6 +11,6 @@ public class RandomEncodeAdapter implements EncodeBehaviour {
 
     @Override
     public String decode(String text) {
-        return Arrays.toString(this.cypher.decypher(text.toCharArray()));
+        return String.valueOf(this.cypher.decypher(text.toCharArray()));
     }
 }

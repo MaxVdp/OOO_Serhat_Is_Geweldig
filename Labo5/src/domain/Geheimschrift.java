@@ -1,22 +1,15 @@
 package domain;
 
+import factory.EncodeBehaviourFactory;
+
 public class Geheimschrift {
     private EncodeBehaviour encodeBehaviour;
     private String tekst;
 
-    public Geheimschrift(String geheimschrift, EncodeBehaviour encodeBehaviour) {
-        setGeheimschrift(geheimschrift);
-        setEncodeBehaviour(encodeBehaviour);
-    }
-
-    public Geheimschrift(String geheimschrift) {
-        this(geheimschrift, null);
-    }
-
     public Geheimschrift() {}
 
-    public void setEncodeBehaviour(EncodeBehaviour encodeBehaviour) {
-        this.encodeBehaviour = encodeBehaviour;
+    public void setEncodeBehaviour(String encodeBehaviour, Object... args) {
+        this.encodeBehaviour = EncodeBehaviourFactory.createEncodeBehaviour(encodeBehaviour, args);
     }
 
     public void setGeheimschrift(String tekst) {
@@ -32,4 +25,7 @@ public class Geheimschrift {
         return this.encodeBehaviour.decode(tekst);
     }
 
+    public EncodeBehaviour getEncodeBehaviour() {
+        return encodeBehaviour;
+    }
 }
