@@ -10,8 +10,8 @@ public class Main {
 
         Geheimschrift geheimschrift = new Geheimschrift();
 //        geheimschrift.setEncodeBehaviour("RANDOMBEHAVIOUR");
-        geheimschrift.setEncodeBehaviour("CEASERBEHAVIOUR", 1);
-//        geheimschrift.setEncodeBehaviour("MIRRORINGBEHAVIOUR");
+//        geheimschrift.setEncodeBehaviour("CEASERBEHAVIOUR", 1);
+        geheimschrift.setEncodeBehaviour("MIRRORINGBEHAVIOUR");
         geheimschrift.setGeheimschrift(phrase);
 
 
